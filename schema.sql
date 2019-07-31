@@ -8,8 +8,9 @@ CREATE TABLE users (
     username VARCHAR(200) UNIQUE NOT NULL,
     password_digest VARCHAR(1000) NOT NULL,
     email VARCHAR(200) UNIQUE NOT NULL,
-    phone INTEGER,
-    skills VARCHAR(1000)
+    phone VARCHAR(50),
+    skills VARCHAR(1000),
+    interests VARCHAR(1000)
 );
 
 CREATE TABLE events (
