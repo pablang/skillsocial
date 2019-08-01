@@ -7,10 +7,12 @@ CREATE TABLE users (
     name VARCHAR(200) NOT NULL,
     username VARCHAR(200) UNIQUE NOT NULL,
     password_digest VARCHAR(1000) NOT NULL,
+    image_url VARCHAR(200),
     email VARCHAR(200) UNIQUE NOT NULL,
     phone VARCHAR(50),
-    skills VARCHAR(1000),
-    interests VARCHAR(1000)
+    about_me VARCHAR(2000),
+    skills text,
+    interests text 
 );
 
 CREATE TABLE events (

@@ -1,14 +1,33 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8">    
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Hello World</title>
   <link rel='stylesheet' href='/stylesheets/main.css'>
+  <link href="https://fonts.googleapis.com/css?family=Muli&display=swap" rel="stylesheet">
 </head>
 <body>
-<a href="/">HOME</a>
+<main class="container">
+  <nav class="header">
+    <a href="/users/profile">My Profile</a>
+    <a href="/">HOME</a>
+     <% if logged_in? %>
+    <%=current_user.username%>
+    <%# add logout button %>
+    <form action="/sessions" method="post">
+      <input type="hidden" name="_method" value="delete">
+      <button>LOGOUT</button>
+    </form>
+  <%else%>
+    <a href="/login">login</a>
+    <a href="/signup">signup</a>
+  <%end%>
+  </nav>
+ 
 
-  <%= yield %>
-
+    <%= yield %>
+</main>
 </body>
 </html>
