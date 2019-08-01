@@ -17,11 +17,10 @@ CREATE TABLE users (
 
 CREATE TABLE events (
     id SERIAL PRIMARY KEY,
-    event_name VARCHAR(200) NOT NULL,
-    event_date DATE NOT NULL,
-    event_time TIME NOT NULL,
-    event_location VARCHAR(200) NOT NULL,
-    event_description VARCHAR(1000)
+    name VARCHAR(200) NOT NULL,
+    date_time timestamptz,
+    location VARCHAR(200) NOT NULL,
+    description VARCHAR(1000)
 );
 
 CREATE TABLE comments (

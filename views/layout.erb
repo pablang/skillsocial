@@ -11,11 +11,9 @@
 <body>
 <main class="container">
   <nav class="header">
-    <a href="/users/profile">My Profile</a>
     <a href="/">HOME</a>
-     <% if logged_in? %>
-    <%=current_user.username%>
-    <%# add logout button %>
+    <% if logged_in? %>
+    <a href="/users/<%=current_user.id%>"><%=current_user.username%>'s profile</a>
     <form action="/sessions" method="post">
       <input type="hidden" name="_method" value="delete">
       <button>LOGOUT</button>
@@ -25,8 +23,6 @@
     <a href="/signup">signup</a>
   <%end%>
   </nav>
- 
-
     <%= yield %>
 </main>
 </body>

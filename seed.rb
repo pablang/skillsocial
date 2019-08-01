@@ -11,3 +11,11 @@ user.about_me = "this is my about me. i write stuff about me here. Flanders suck
 user.skills = 'filipino cooking', 'welding', 'muay thai'
 user.interests = 'coding', 'diving'
 user.save
+
+
+event = Events.new
+event.name = "Welding workshop"
+event.date_time = '2019/08/28'
+event.location = "coburg"
+event.description = 'arc welding for beginners'
+event.save

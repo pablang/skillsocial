@@ -1,0 +1,12 @@
+<header class="events-header">
+    <h1>Events</h1>
+    <a href="/events/new">Add new event</a>
+</header>
+<% @events.each do |event|%>
+<div class="each-event">
+    <p><%=event.name%></p>
+    <p>Date: <%=event.date_time.strftime("%d/%m/%y")%></p>
+    <p>Time: <%=event.date_time.strftime("%H:/%M")%></p>
+    <p>Description: <%=event.description%></p>
+<%end%>
+</div>

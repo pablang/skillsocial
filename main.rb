@@ -4,6 +4,7 @@ require 'sinatra/reloader'
 require 'pry'
 require_relative 'database_config'
 require_relative 'models/user'
+require_relative 'models/event'
 
 
 
@@ -28,9 +29,9 @@ after do
 end
 
 get '/' do
+  @user = current_user
   erb :index
 end
-binding.pry
 
 get '/login' do
   erb :login

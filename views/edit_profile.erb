@@ -1,0 +1,19 @@
+<form class="user-edit" action="/users/<%=@user.id%>" method="post">
+<input type="hidden" name="_method" value="put">
+    <h1>Edit Profile</h1>
+    <label for="">email</label>
+    <input type="text" name="email" value="<%=@user.email%>">
+    <label for="">name</label>
+    <input type="text" name="name" value="<%=@user.name%>">
+    <label for="">username</label>
+    <input type="text" name="username" value="<%=@user.username%>">
+    <label for="">image url</label>
+    <input type="text" name="image_url" value="<%=@user.image_url%>">
+    <label for="">phone</label>
+    <input type="text" name="phone" value="<%=@user.phone%>">
+    <label for="">skills</label>
+    <textarea name="skills"><%=@user.skills%></textarea >
+    <label for="">interests</label>
+    <textarea name="interests" ><%=@user.interests%></textarea>
+    <button>SAVE</button>
+</form>                                                                                                                                                                                                                

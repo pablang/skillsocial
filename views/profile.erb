@@ -1,4 +1,9 @@
 <div class="profile">
+    <%# <form action="/users" method="post">
+        <input type="hidden" name="_method" value="put">
+        <button>EDIT PROFILE</button>
+    </form> %>
+    <a href="/users/<%=@user.id%>/edit">EDIT PROFILE</a>
     <header class="user-info">
         <img class="user-img" src="<%=@user.image_url%>">
         <h1><%=@user.name%></h1>
@@ -8,10 +13,13 @@
     <section class="about-me">
         <h4>About Me</h4>
         <p><%=@user.about_me%> put about me details here</p>
- 
     </section>
     <section class='user-events'>
         <h4>Events</h4>
         <p>put event details here</p>
+    </section>
+    <section class="feedback">
+        <h4>feedback</h4>
+        <p>good dog</p>
     </section>
 </div>
