@@ -52,6 +52,7 @@ require_relative 'routes/sessions'
 require_relative 'routes/users'
 require_relative 'routes/events'
 require_relative 'routes/feedback'
+require_relative 'routes/attendees'
 
 
 

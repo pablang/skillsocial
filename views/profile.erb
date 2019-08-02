@@ -1,7 +1,7 @@
 <div class="profile">
 
 
-    <%if logged_in? == current_user%>
+    <%if @user.id == current_user.id %>
         <a href="/users/<%=@user.id%>/edit">EDIT PROFILE</a>
     <%end %>
     <header class="user-info">
@@ -41,6 +41,8 @@
         <p><%=event.description%></p>
         <%end%>
     </section>
-
+    <%if @user.id == current_user.id %>
+        <%# show events i'm attending and organising%>
+    <%end %>
 
 </div>

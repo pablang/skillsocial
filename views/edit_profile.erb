@@ -12,8 +12,11 @@
     <label for="">phone</label>
     <input type="text" name="phone" value="<%=@user.phone%>">
     <label for="">skills</label>
-    <textarea name="skills"><%=@user.skills%></textarea >
+    <textarea name="skills"></textarea >
     <label for="">interests</label>
-    <textarea name="interests" ><%=@user.interests%></textarea>
+    <textarea name="interests" ></textarea>
     <button>SAVE</button>
+</form>
+<form action="/users/<%=@user.id%>">
+    <button>CANCEL</button>
 </form>                                                                                                                                                                                                                

@@ -1,13 +1,16 @@
 <header class="events-header">
     <h1>Events</h1>
-    <a href="/events/new/form">Add new event</a>
-</header>
-<% @events.each do |event|%>
+    <form action="/events/new/form">
+        <button>ADD NEW EVENT</button>
+    </form>
 
+</header>
+
+<% @events.each do |event|%>
 <a href="/events/<%=event.id%>">
 <div class="each-event">
 
-    <p><%=event.name%></p>
+    <h3><%=event.name%></h3>
     <p>Date: <%=show_date(event.date_time)%></p>
     <p>Time: <%=show_time(event.date_time)%></p>
     <p>Description: <%=event.description%></p>
