@@ -275,3 +275,20 @@ button {
     border: 0.5px solid rgb(200, 200, 200);
     border-radius: 2px;
 }
+
+.users-block {
+    display: flex;
+    flex-direction: column;
+}
+
+.users-block img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 50%;
+    float: left;
+}
+
+.users-block p {
+    float: right;
+}

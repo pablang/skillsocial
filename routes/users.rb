@@ -27,10 +27,10 @@ post '/users/new' do
 end
   
 get '/users/:id' do
-  binding.pry
-  redirect '/login' unless current_user.id == params[:id].to_i
-    @user = current_user
-    erb :profile
+  # redirect '/login' unless current_user.id == params[:id].to_i
+  @user = Users.find(params[:id])
+  @users_events = UsersEvents.where(params[:id])
+  erb :profile
 end
 
 get '/users/:id/edit' do

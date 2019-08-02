@@ -3,10 +3,15 @@
     <a href="/events/new">Add new event</a>
 </header>
 <% @events.each do |event|%>
+
+<a href="/events/<%=event.id%>">
 <div class="each-event">
+
     <p><%=event.name%></p>
-    <p>Date: <%=event.date_time.strftime("%d/%m/%y")%></p>
-    <p>Time: <%=event.date_time.strftime("%H:/%M")%></p>
+    <p>Date: <%=show_date(event.date_time)%></p>
+    <p>Time: <%=show_time(event.date_time)%></p>
     <p>Description: <%=event.description%></p>
+
 <%end%>
 </div>
+</a>

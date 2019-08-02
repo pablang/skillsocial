@@ -7,13 +7,22 @@
 <div class='near-you'>
     <section class="events-block">
         <h3><a href="/events">Events</a></h3>
-        <p>Welding Workshop</p>
-        <p>28th Aug 2109</p>
+        <%@events.each do |event|%>
+            <p><%=event.name%></p>
+            <p><%=event.date_time.strftime("%d/%m/%y")%></p>
+            <p><%=event.date_time.strftime("%H:%M")%></p>
+            <p><%=event.location%></p>
+            <br>
+        <%end%>
+
     </section>
 
     <section class="users-block">
         <h3>People</h3>
-        <p>Personal Trainer</p>
-        <p>Southbank</p>
+        <%@users.each do |user|%>
+        <a href="/users/<%=user.id%>"><img src="<%=user.image_url%>" alt=""></a>
+        <p><%=user.name%></p>
+        <p><%=user.skills%></p>
+        <%end%>
     </section>
 </div>

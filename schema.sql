@@ -23,11 +23,11 @@ CREATE TABLE events (
     description VARCHAR(1000)
 );
 
-CREATE TABLE comments (
-    id SERIAL PRIMARY KEY,
-    content VARCHAR(1000) NOT NULL,
-    user_id INTEGER,
-    event_id INTEGER
+CREATE TABLE users_events (
+    id  SERIAL PRIMARY KEY,
+    organiser_id INTEGER,
+    event_id INTEGER,
+    attendee_id INTEGER
 );
 
 CREATE TABLE feedback (
@@ -35,4 +35,12 @@ CREATE TABLE feedback (
     receiver_id INTEGER,
     giver_id INTEGER,
     rating INTEGER
+);
+
+
+CREATE TABLE comments (
+    id SERIAL PRIMARY KEY,
+    content VARCHAR(1000) NOT NULL,
+    user_id INTEGER,
+    event_id INTEGER
 );

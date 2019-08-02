@@ -1,9 +1,9 @@
 <div class="profile">
-    <%# <form action="/users" method="post">
-        <input type="hidden" name="_method" value="put">
-        <button>EDIT PROFILE</button>
-    </form> %>
-    <a href="/users/<%=@user.id%>/edit">EDIT PROFILE</a>
+
+
+    <%if logged_in? == current_user%>
+        <a href="/users/<%=@user.id%>/edit">EDIT PROFILE</a>
+    <%end %>
     <header class="user-info">
         <img class="user-img" src="<%=@user.image_url%>">
         <h1><%=@user.name%></h1>
@@ -21,5 +21,15 @@
     <section class="feedback">
         <h4>feedback</h4>
         <p>good dog</p>
+        <% if logged_in? %>
+            <form action="/feedback/new" method="post">
+                <textarea name="feedback"></textarea>
+                <button>give feedback</button>
+            </form>
+        <%else %>
+            <form action="/login">
+                <button>LOG IN TO GIVE FEEDBACK</button>
+            </form>
+        <%end%>
     </section>
 </div>
