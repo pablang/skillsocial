@@ -26,17 +26,18 @@ post '/users/new' do
     # end
 end
   
-get '/users/:id' do
-  # redirect '/login' unless current_user.id == params[:id].to_i
-  @user = Users.find(params[:id])
-  @users_events = UsersEvents.where(params[:id])
-  erb :profile
-end
-
 get '/users/:id/edit' do
   @user = Users.find(session[:user_id])
   erb :edit_profile
 end
+
+get '/users/:id' do
+  redirect '/login' unless current_user.id == params[:id].to_i
+  @user = Users.find(params[:id])
+  @events = Events.where(creator_id: current_user.id)
+  erb :profile
+end
+
 
 put "/users/:id" do
   redirect '/login' unless session[:user_id]

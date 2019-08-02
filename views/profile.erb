@@ -32,4 +32,15 @@
             </form>
         <%end%>
     </section>
+    <section class="user-events">
+        <%@events.each do |event|%>
+        <p><%=event.name%></p>
+        <p><%=show_date(event.date_time)%></p>
+        <p><%=show_time(event.date_time)%></p>
+        <p><%=event.location%></p>
+        <p><%=event.description%></p>
+        <%end%>
+    </section>
+
+
 </div>

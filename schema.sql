@@ -20,14 +20,14 @@ CREATE TABLE events (
     name VARCHAR(200) NOT NULL,
     date_time timestamptz,
     location VARCHAR(200) NOT NULL,
-    description VARCHAR(1000)
+    description VARCHAR(1000),
+    creator_id INTEGER
 );
 
-CREATE TABLE users_events (
+CREATE TABLE attendees (
     id  SERIAL PRIMARY KEY,
-    organiser_id INTEGER,
-    event_id INTEGER,
-    attendee_id INTEGER
+    user_id INTEGER,
+    event_id INTEGER
 );
 
 CREATE TABLE feedback (

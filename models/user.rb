@@ -1,4 +1,5 @@
 class Users < ActiveRecord::Base
-    has_and_belongs_to_many :events
+    belongs_to :event
+    belongs_to :attendees
     has_secure_password
 end
