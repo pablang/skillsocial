@@ -13,7 +13,7 @@ post '/users/new' do
     user.phone = params[:phone]
     user.skills = params[:skills]
     user.interests = params[:interests]
-    binding.pry
+    # binding.pry
     user.save
     session[:user_id] = user.id
     redirect "/users/#{current_user}"

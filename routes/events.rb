@@ -5,13 +5,13 @@ end
 
 get "/events/:id" do
     # @users = #users.where(event_id: params[:id])
-    binding.pry
+    # binding.pry
     @event = Events.find(params[:id])
     erb :event_details
 end
    
-get '/events/new' do
-    binding.pry
+get '/events/new/form' do
+    # binding.pry
     redirect '/login' unless session[:user_id]
     erb :new_event
 end
@@ -28,6 +28,6 @@ post '/events/new' do
     organisers_event = UsersEvents.new
     organisers_event = current_user.id
     organisers_event.save
-    binding.pry
+    # binding.pry
     redirect '/events'
 end

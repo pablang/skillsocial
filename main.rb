@@ -1,6 +1,6 @@
      
 require 'sinatra'
-require 'sinatra/reloader'
+# require 'sinatra/reloader'
 require 'pry'
 require_relative 'database_config'
 require_relative 'models/user'
