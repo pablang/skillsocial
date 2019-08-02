@@ -5,5 +5,5 @@ require_relative 'models/event'
 require_relative 'models/attendee'
 
 
-binding.pry
+# binding.pry
 
