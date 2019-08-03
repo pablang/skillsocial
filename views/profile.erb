@@ -1,7 +1,7 @@
 <div class="profile">
 
 
-    <%if logged_in? && current_user %>
+    <%if logged_in? && current_user.id == @user.id %>
         <a href="/users/<%=@user.id%>/edit">EDIT PROFILE</a>
     <%end %>
     <header class="user-info">
@@ -35,23 +35,26 @@
     <section class="user-events">
         <h2>Events by organiser</h2>
         <%@events.each do |event|%>
-        <p><%=event.name%></p>
+        <h3><%=event.name%></h3><a href="/events/<%=event.id%>"><h3><%=event.name%></h3></a>
         <p><%=show_date(event.date_time)%></p>
         <p><%=show_time(event.date_time)%></p>
         <p><%=event.location%></p>
         <p><%=event.description%></p>
-        <h2>who's attending</h2>
-        <%event.subscribed_users.each do |user|%>
-        <p><%=user.username%></p>
-        <p><%=user.image_url%></p>
-        <% end %>
+        <%if logged_in? %>
+        <h3>ROLL CALL</h3>
+            <%event.subscribed_users.each do |user|%>
+            <p><%=user.username%></p>
+            <a href="/users/<%=user.id%>"><img src="<%=user.image_url%>" alt="no profile image"></a>
+            
+            <% end %>
+        <% end %>    
         <%end%>
     </section>
     <section>
     <%if logged_in? %>
         <h2>Events I'm attending</h2>
         <%@user.subscribed_events.each do |event|%>
-        <p><%=event.name%></p>
+        <a href="/events/<%=event.id%>"><h3><%=event.name%></h3></a>
         <p><%=show_date(event.date_time)%></p>
         <p><%=show_time(event.date_time)%></p>
         <p><%=event.location%></p>
