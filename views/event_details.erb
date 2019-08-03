@@ -12,6 +12,8 @@
 <p>Description: <%=@event.description%></p>
 <p>Organised by <a href="/users/<%=@event.user_id%>"><%=@event.user.username%></a></p>
 
+<p>There are <%= @event.subscribed_users.count%> interested in attending this event</p>
+
 <%if logged_in?%>
 <form action="/subscribed_users/new" method="post">
     <input type="hidden" name="event_id" value="<%= @event.id%>">
@@ -25,8 +27,6 @@
         <button>Login</button>
     </form>
 <%end%>
-
-<p>There are <%= @event.subscribed_users.count%> interested in attending this event</p>
 
 
  </section>

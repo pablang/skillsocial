@@ -20,11 +20,10 @@
     <section class="users-block">
         <h3>People</h3>
         <%@users.each do |user|%>
-        <img src="<%=user.image_url%>" alt="">
         <div class="home-details">
+        <img src="<%=user.image_url%>" alt="">
         <a href="/users/<%=user.id%>">
-        <p><%=user.name%></p>
-        <p><%=user.skills%></p>
+        <p><%=user.name%><br><%=user.skills%></p>
         </a>
         </div>
         <%end%>

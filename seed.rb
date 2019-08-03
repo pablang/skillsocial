@@ -63,6 +63,13 @@ event3.description = 'yoga on the beach'
 event3.user_id = 1
 event3.save
 
+c = Comment.new
+c.user_id = 1
+c.body = "Doggo ipsum very taste wow big ol pupper most angery pupper I have ever seen, heckin. Puggo very taste wow you are doing me the shock noodle horse, wrinkler."
+c.received_user_id = 2
+c.save
+
+
 # user3.events << event2
 # user3.events << event3
 

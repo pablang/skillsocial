@@ -32,7 +32,6 @@ end
 
 put "/events/:id" do
     redirect '/login' unless current_user
-    # binding.pry
     event = Event.find(params[:id])
     event.name = params[:name]
     event.date_time = "#{params[:date]} #{params[:time]}"

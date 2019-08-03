@@ -44,7 +44,7 @@
     margin: 1rem auto;
 }
 .each-event p {
-    line-height: 1.3rem;
+    line-height: 1.8rem;
 }
 
 .events-header {
@@ -115,8 +115,10 @@
     margin: 0.5rem auto;
 }
 .event-details p {
-    line-height: 2.5rem;
+    line-height: 1.5rem;
+    padding: 3px 0;
 }
 .event-details button {
     display: block;
+    margin: 0 auto;
 }

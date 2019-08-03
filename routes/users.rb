@@ -29,6 +29,7 @@ end
 get '/users/:id' do
   @user = User.find(params[:id])
   @events = Event.where(user_id: @user.id)
+  @comments = Comment.where(received_user_id: @user.id)
   erb :profile
 end
   

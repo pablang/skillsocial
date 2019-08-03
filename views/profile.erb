@@ -1,65 +1,69 @@
-<div class="profile">
+<%if logged_in? && current_user.id == @user.id %>
+    <a href="/users/<%=@user.id%>/edit">EDIT PROFILE</a>
+<%end %>
 
+<header class="user-info">
+    <img src="<%=@user.image_url%>">
+    <h1><%=@user.name%></h1>
+    <p> SKILLS: <%=@user.skills%></p>
+    <p> INTERESTS: <%=@user.interests%></p>
+</header>
+<div class="about">
+<section class="about-me">
+    <h4>About Me</h4>
+    <p><%=@user.about_me%> put about me details here</p>
+</section>
 
-    <%if logged_in? && current_user.id == @user.id %>
-        <a href="/users/<%=@user.id%>/edit">EDIT PROFILE</a>
-    <%end %>
-    <header class="user-info">
-        <img class="user-img" src="<%=@user.image_url%>">
-        <h1><%=@user.name%></h1>
-        <p> SKILLS: <%=@user.skills%></p>
-        <p> INTERESTS: <%=@user.interests%></p>
-    </header>
-    <section class="about-me">
-        <h4>About Me</h4>
-        <p><%=@user.about_me%> put about me details here</p>
-    </section>
-    <section class='user-events'>
-        <h4>Events</h4>
-        <p>put event details here</p>
-    </section>
-    <section class="feedback">
-        <h4>feedback</h4>
-        <p>good dog</p>
-        <% if logged_in? %>
-            <form action="/feedback/new" method="post">
-                <textarea name="feedback"></textarea>
-                <button>give feedback</button>
-            </form>
-        <%else %>
-            <form action="/login">
-                <button>LOG IN TO GIVE FEEDBACK</button>
-            </form>
-        <%end%>
-    </section>
-    <section class="user-events">
-        <h2>Events by organiser</h2>
-        <%@events.each do |event|%>
-        <h3><%=event.name%></h3><a href="/events/<%=event.id%>"><h3><%=event.name%></h3></a>
-        <p><%=show_date(event.date_time)%></p>
-        <p><%=show_time(event.date_time)%></p>
-        <p><%=event.location%></p>
-        <p><%=event.description%></p>
-        <%if logged_in? %>
-        <h3>ROLL CALL</h3>
-            <%event.subscribed_users.each do |user|%>
-            <p><%=user.username%></p>
-            <a href="/users/<%=user.id%>"><img src="<%=user.image_url%>" alt="no profile image"></a>
-            
-            <% end %>
-        <% end %>    
-        <%end%>
-    </section>
-    <section>
-    <%if logged_in? %>
-        <h2>Events I'm attending</h2>
-        <%@user.subscribed_events.each do |event|%>
-        <a href="/events/<%=event.id%>"><h3><%=event.name%></h3></a>
-        <p><%=show_date(event.date_time)%></p>
-        <p><%=show_time(event.date_time)%></p>
-        <p><%=event.location%></p>
-        <p><%=event.description%></p>
-        <%end%>
-    <%end %>
-    </section>
+<section class="feedback">
+    <h4>Feedback</h4>
+    <%@comments.each do |comment|%>
+    <div class="comment-box">
+        <p><%=comment.body%></p>
+        <p><%=comment.user.name%></p>
+    </div>    
+    <% end %>
+    <% if logged_in? %>
+        <form action="/feedback/new" method="post">
+            <input type="hidden" name="id" value="<%=current_user.id%>">
+            <input type="hidden" name="receiver" value="<%=@user.id%>">
+            <textarea name="feedback"></textarea>
+            <button>give feedback</button>
+        </form>
+        <%# add a delete comment button %>
+    <%else %>
+        <form action="/login">
+            <button>LOG IN TO GIVE FEEDBACK</button>
+        </form>
+    <%end%>
+</section>
 </div>
+<section class="my-classes">
+    <h2>My classes</h2>
+    <%@events.each do |event|%>
+    <h3><%=event.name%></h3><a href="/events/<%=event.id%>"><h3><%=event.name%></h3></a>
+    <p><%=show_date(event.date_time)%></p>
+    <p><%=show_time(event.date_time)%></p>
+    <p><%=event.location%></p>
+    <p><%=event.description%></p>
+    <%if logged_in? %>
+    <h3>ROLL CALL</h3>
+        <%event.subscribed_users.each do |user|%>
+        <p><%=user.username%></p>
+        <a href="/users/<%=user.id%>"><img src="<%=user.image_url%>" alt="no profile image"></a>
+        
+        <% end %>
+    <% end %>    
+    <%end%>
+</section>
+<section class="enrolled-classes">
+<%if logged_in? %>
+    <h2>Enrolled classes</h2>
+    <%@user.subscribed_events.each do |event|%>
+    <a href="/events/<%=event.id%>"><h3><%=event.name%></h3></a>
+    <p><%=show_date(event.date_time)%></p>
+    <p><%=show_time(event.date_time)%></p>
+    <p><%=event.location%></p>
+    <p><%=event.description%></p>
+    <%end%>
+<%end %>
+</section>

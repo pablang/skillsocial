@@ -8,9 +8,10 @@
   <link href="https://fonts.googleapis.com/css?family=Muli&display=swap" rel="stylesheet">
   <link rel='stylesheet' href='/stylesheets/main.css'>
   <link rel='stylesheet' href='/stylesheets/event-pages.css'>
+  <link rel='stylesheet' href='/stylesheets/home-page.css'>
+  <link rel='stylesheet' href='/stylesheets/profile.css'>
 </head>
 <body>
-<main class="container">
   <nav class="header">
     <a href="/">HOME</a>
     <% if logged_in? %>
@@ -24,6 +25,7 @@
     <a href="/signup">signup</a>
   <%end%>
   </nav>
+<main class="container">
     <%= yield %>
 </main>
 </body>

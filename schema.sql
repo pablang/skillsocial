@@ -36,17 +36,9 @@ CREATE TABLE event_subscriptions (
     FOREIGN KEY (subscribed_event_id) REFERENCES events (id)
 );
 
--- CREATE TABLE feedback (
---     id SERIAL PRIMARY KEY,
---     receiver_id INTEGER,
---     giver_id INTEGER,
---     rating INTEGER
--- );
-
-
--- CREATE TABLE comments (
---     id SERIAL PRIMARY KEY,
---     content VARCHAR(1000) NOT NULL,
---     user_id INTEGER,
---     event_id INTEGER
--- );
+CREATE TABLE comments (
+    id SERIAL PRIMARY KEY,
+    body VARCHAR(2000),
+    user_id INTEGER,
+    received_user_id INTEGER
+);
