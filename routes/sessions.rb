@@ -1,5 +1,5 @@
 post '/sessions/new' do
-    user = Users.find_by(email: params[:email])
+    user = User.find_by(email: params[:email])
     if user && user.authenticate(params[:password])
       session[:user_id] = user.id
       redirect '/'

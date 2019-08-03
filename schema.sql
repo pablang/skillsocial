@@ -1,6 +1,10 @@
-CREATE DATABASE skillsocial;
+-- DROP DATABASE IF EXISTS skillsocial;
+-- CREATE DATABASE skillsocial;
+-- dropdb skillsocial
+-- createdb skillsocial
+-- psql skillsocial < schema.sql
 
-\c skillsocial
+-- \c skillsocial
 
 CREATE TABLE users (
     id SERIAL PRIMARY KEY,
@@ -21,26 +25,28 @@ CREATE TABLE events (
     date_time timestamptz,
     location VARCHAR(200) NOT NULL,
     description VARCHAR(1000),
-    creator_id INTEGER
-);
-
-CREATE TABLE attendees (
-    id  SERIAL PRIMARY KEY,
     user_id INTEGER,
-    event_id INTEGER
+    FOREIGN KEY (user_id) REFERENCES users (id)
 );
 
-CREATE TABLE feedback (
-    id SERIAL PRIMARY KEY,
-    receiver_id INTEGER,
-    giver_id INTEGER,
-    rating INTEGER
+CREATE TABLE event_subscriptions (
+    subscribed_user_id INTEGER,
+    subscribed_event_id INTEGER,
+    FOREIGN KEY (subscribed_user_id) REFERENCES users (id),
+    FOREIGN KEY (subscribed_event_id) REFERENCES events (id)
 );
 
+-- CREATE TABLE feedback (
+--     id SERIAL PRIMARY KEY,
+--     receiver_id INTEGER,
+--     giver_id INTEGER,
+--     rating INTEGER
+-- );
 
-CREATE TABLE comments (
-    id SERIAL PRIMARY KEY,
-    content VARCHAR(1000) NOT NULL,
-    user_id INTEGER,
-    event_id INTEGER
-);
+
+-- CREATE TABLE comments (
+--     id SERIAL PRIMARY KEY,
+--     content VARCHAR(1000) NOT NULL,
+--     user_id INTEGER,
+--     event_id INTEGER
+-- );

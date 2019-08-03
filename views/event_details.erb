@@ -4,9 +4,10 @@
 <p>Date: <%=show_date(@event.date_time)%></p>
 <p>Time: <%=show_time(@event.date_time)%></p>
 <p>Description: <%=@event.description%></p>
-<p>Organised by <a href="/users/<%=@creator.id%>"><%=@creator.name%></a></p>
+<p>Organised by <a href="/users/<%=@event.user_id%>"><%=@event.user.username%></a></p>
+
 <%if logged_in?%>
-<form action="/attendees/new" method="post">
+<form action="/subscribed_users/new" method="post">
     <input type="hidden" name="event_id" value="<%= @event.id%>">
     <input type="hidden" name="user_id" value="<%=current_user.id%>">
     <label for="rsvp_button">If you would like to come please click below</label>
@@ -19,4 +20,4 @@
     </form>
 <%end%>
 
-<p>There are <%=Attendees.where(event_id: @event.id).count%> people interested in attending this event</p>
+<p>There are <%= @event.subscribed_users.count%> interested in attending this event</p>

@@ -8,7 +8,7 @@
     <section class="events-block">
         <h3><a href="/events">Events</a></h3>
         <%@events.each do |event|%>
-            <p><%=event.name%></p>
+            <a href="/events/<%=event.id%>"><p><%=event.name%></p></a>
             <p><%=event.date_time.strftime("%d/%m/%y")%></p>
             <p><%=event.date_time.strftime("%H:%M")%></p>
             <p><%=event.location%></p>
@@ -19,7 +19,6 @@
 
     <section class="users-block">
         <h3>People</h3>
-        
         <%@users.each do |user|%>
         <img src="<%=user.image_url%>" alt="">
         <div class="home-details">

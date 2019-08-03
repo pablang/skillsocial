@@ -1,7 +1,7 @@
 <div class="profile">
 
 
-    <%if @user.id == current_user.id %>
+    <%if logged_in? && current_user %>
         <a href="/users/<%=@user.id%>/edit">EDIT PROFILE</a>
     <%end %>
     <header class="user-info">
@@ -33,16 +33,30 @@
         <%end%>
     </section>
     <section class="user-events">
+        <h2>Events by organiser</h2>
         <%@events.each do |event|%>
         <p><%=event.name%></p>
         <p><%=show_date(event.date_time)%></p>
         <p><%=show_time(event.date_time)%></p>
         <p><%=event.location%></p>
         <p><%=event.description%></p>
+        <h2>who's attending</h2>
+        <%event.subscribed_users.each do |user|%>
+        <p><%=user.username%></p>
+        <p><%=user.image_url%></p>
+        <% end %>
         <%end%>
     </section>
-    <%if @user.id == current_user.id %>
-        <%# show events i'm attending and organising%>
+    <section>
+    <%if logged_in? %>
+        <h2>Events I'm attending</h2>
+        <%@user.subscribed_events.each do |event|%>
+        <p><%=event.name%></p>
+        <p><%=show_date(event.date_time)%></p>
+        <p><%=show_time(event.date_time)%></p>
+        <p><%=event.location%></p>
+        <p><%=event.description%></p>
+        <%end%>
     <%end %>
-
+    </section>
 </div>

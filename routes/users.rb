@@ -4,13 +4,14 @@ get '/signup' do
   end
   
 post '/users/new' do
-    user = Users.new
+    user = User.new
     user.email = params[:email]
     user.name = params[:name]
     user.username = params[:username]
     user.password = params[:password]
     user.image_url = params[:image_url]
     user.phone = params[:phone]
+    user.about_me = params[:about_me]
     user.skills = params[:skills]
     user.interests = params[:interests]
     user.save
@@ -26,26 +27,22 @@ post '/users/new' do
 end
 
 get '/users/:id' do
-  # redirect '/login' unless current_user.id == params[:id].to_i
-  @user = Users.find(params[:id])
-  @events = Events.where(creator_id: current_user.id)
+  @user = User.find(params[:id])
+  @events = Event.where(user_id: @user.id)
   erb :profile
 end
   
 get '/users/:id/edit' do
-  @user = Users.find(session[:user_id])
+  @user = User.find(session[:user_id])
   erb :edit_profile
 end
 
-
-
 put "/users/:id" do
   redirect '/login' unless session[:user_id]
-  user = Users.find(session[:user_id])
+  user = User.find(session[:user_id])
   user.email = params[:email]
   user.name = params[:name]
   user.username = params[:username]
-  # user.password = params[:password]
   user.image_url = params[:image_url]
   user.phone = params[:phone]
   user.skills = params[:skills]

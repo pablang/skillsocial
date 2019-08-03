@@ -5,9 +5,7 @@ require 'pry'
 require_relative 'database_config'
 require_relative 'models/user'
 require_relative 'models/event'
-require_relative 'models/attendee'
-
-
+require_relative 'models/event_subscription'
 
 enable :sessions
 
@@ -21,7 +19,7 @@ helpers do
   end
 
   def current_user
-    Users.find_by(id: session[:user_id])
+    User.find_by(id: session[:user_id])
   end
 
   def show_date(date)
@@ -38,8 +36,8 @@ after do
 end
 
 get '/' do
-  @events = Events.all.order(date_time: :asc)
-  @users = Users.all
+  @events = Event.all.order(date_time: :asc)
+  @users = User.all
   @user = current_user
   erb :index
 end
@@ -52,7 +50,7 @@ require_relative 'routes/sessions'
 require_relative 'routes/users'
 require_relative 'routes/events'
 require_relative 'routes/feedback'
-require_relative 'routes/attendees'
+require_relative 'routes/subscribed_users'
 
 
 
