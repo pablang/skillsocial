@@ -1,0 +1,122 @@
+
+.event-form {
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: auto;
+}
+
+.event-form > h1 {
+    text-align: center;
+}
+
+.event-form > input, .event-form > label {
+    display: block;
+    font-size: 16px;
+    text-align: center;
+    margin: 0.25rem 0 0 0;
+}
+
+.event-form > input {
+    border: 0.5px solid rgb(200, 200, 200);
+    border-radius: 2px;
+    padding: 2px;
+    text-align: left;
+}
+
+.event-form > button {
+    padding: 0.25rem;
+    font-size: 12px;
+    margin: 1rem auto;
+    border: 0.5px solid rgb(200, 200, 200);
+    width: 40%;
+}
+
+.event-form > textarea {
+    width: 100%;
+    height: 3rem;
+    margin: 0.25rem 0 0 0;
+    border-radius: 2px;
+    border: 0.5px solid rgb(200, 200, 200);
+}
+.each-event {
+    margin: 1rem auto;
+}
+.each-event p {
+    line-height: 1.3rem;
+}
+
+.events-header {
+    display: flex;
+    flex-direction: column;
+    margin: 0 1rem;
+}
+.events-header h1 {
+    text-align: center;
+}
+.events-header a {
+    margin: 1rem 0;
+    text-align: right;
+}
+
+.edit-event-form {
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: auto;
+}
+.edit-event-form > h1 {
+    text-align: center;
+}
+
+.edit-event-form > input, .edit-event-form > label {
+    display: block;
+    font-size: 16px;
+    text-align: center;
+    margin: 0.25rem 0 0 0;
+}
+
+.edit-event-form > input {
+    border: 0.5px solid rgb(200, 200, 200);
+    border-radius: 2px;
+    padding: 2px;
+    text-align: left;
+}
+
+.edit-event-form > button {
+    padding: 0.25rem;
+    font-size: 12px;
+    margin: 1rem auto;
+    border: 0.5px solid rgb(200, 200, 200);
+    width: 25%;
+}
+
+.edit-event-form > textarea {
+    width: 100%;
+    height: 3rem;
+    margin: 0.25rem 0 0 0;
+    border-radius: 2px;
+    border: 0.5px solid rgb(200, 200, 200);
+}
+
+.event-details-header {
+    display: flex;
+    justify-content: space-around;
+
+}
+
+.event-details {
+    display: block;
+    justify-content: center;
+    flex-direction: column;
+    width: 80%;
+    margin: 0.5rem auto;
+}
+.event-details p {
+    line-height: 2.5rem;
+}
+.event-details button {
+    display: block;
+}

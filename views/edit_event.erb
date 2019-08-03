@@ -1,0 +1,15 @@
+<form action="/events/<%=@event.id%>" method="post" class="edit-event-form">
+    <h1>edit event</h1>
+    <input type="hidden" name="_method" value="put">
+    <label for="">Event name</label>
+    <input type="text" name="name" value="<%=@event.name%>">
+    <label for="">Date DD/MM/YYYY</label>
+    <input type="text" name="date" value="<%=show_date(@event.date_time)%>">
+    <label for="">Time HH:MM</label>
+    <input type="text" name="time" value="<%=show_time(@event.date_time)%>">
+    <label for="">Location</label>
+    <input type="text" name="location" value="<%=@event.location%>">
+    <label for="">Description</label>
+    <textarea name="description"></textarea value="<%=@event.description%>">
+    <button>EDIT EVENT</button>
+</form>
