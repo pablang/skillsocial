@@ -36,7 +36,8 @@ get '/users/:id' do
   @user = User.find(params[:id]) #profile of person
   @events = Event.where(user_id: @user.id) #events created by person
   @comments = Comment.where(received_user_id: @user.id) # comments person has recevied
-  @has_attended = current_user.events.any? {|event| event[:user_id] == @user.id}
+  # binding.pry
+  @has_attended = current_user.events.any? {|event| event[:user_id] == @user.id} unless current_user == nil
   erb :profile
 end
   

@@ -5,13 +5,13 @@
     text-align: center;
 }
 
-.near-you {
+/* .near-you {
     display: flex;
     justify-content: space-evenly;
     flex-direction: column;
     margin: 1rem auto;
     width: 100%;
-}
+} */
 
 .events-block {
     display: block;
@@ -20,6 +20,11 @@
     border: 0.5px solid rgb(200, 200, 200);
     margin: 1rem auto;
     padding: 0 1rem;
+}
+
+.events-block img {
+    width: 95%;
+    margin: 0.5rem auto;
 }
 
 .users-block {
@@ -41,4 +46,6 @@
 .users-block p {
     float: right;
 }
+
+
 

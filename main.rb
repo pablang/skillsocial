@@ -29,7 +29,7 @@ helpers do
   end
   
   def show_time(time)
-    time.strftime("%H:/%M")
+    time.strftime("%H:%M")
   end
 end
 

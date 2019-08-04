@@ -43,14 +43,16 @@ event1 = Event.new
 event1.name = "Welding workshop"
 event1.date_time = '2019/08/28'
 event1.location = "coburg"
+event1.image_url = 'https://i.imgur.com/VjPeBH3.jpg'
 event1.description = 'arc welding for beginners'
 event1.user_id = 1 #pammy
 event1.save
 
 event2 = Event.new
-event2.name = "Coding workshop"
+event2.name = 'Coding workshop'
 event2.date_time = '2019/08/02 13:00'
 event2.location = "melbourne"
+event2.image_url = 'https://i.imgur.com/xDHXEPo.jpg'
 event2.description = 'coding for beginners'
 event2.user_id = 2 #frankie
 event2.save
@@ -59,6 +61,7 @@ event3 = Event.new
 event3.name = "yoga"
 event3.date_time = '2019/05/02 07:00'
 event3.location = "brunswick"
+event3.image_url = 'https://i.imgur.com/C0kBo9r.jpg'
 event3.description = 'yoga on the beach'
 event3.user_id = 1 # miguel
 event3.save

@@ -7,9 +7,11 @@
     <input type="text" name="date" value="<%=show_date(@event.date_time)%>">
     <label for="">Time HH:MM</label>
     <input type="text" name="time" value="<%=show_time(@event.date_time)%>">
+    <label for="">Image</label>
+    <input type="text" name="image_url" value="<%=@event.image_url%>">
     <label for="">Location</label>
     <input type="text" name="location" value="<%=@event.location%>">
     <label for="">Description</label>
-    <textarea name="description"></textarea value="<%=@event.description%>">
+    <textarea name="description"><%=@event.description%></textarea>
     <button>EDIT EVENT</button>
 </form>

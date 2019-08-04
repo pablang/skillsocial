@@ -5,34 +5,38 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>skillsocial</title>
-  <link href="https://fonts.googleapis.com/css?family=Muli&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Quicksand&display=swap" rel="stylesheet">
   <link rel='stylesheet' href='/stylesheets/main.css'>
-  <link rel='stylesheet' href='/stylesheets/event-pages.css'>
-  <link rel='stylesheet' href='/stylesheets/home-page.css'>
-  <link rel='stylesheet' href='/stylesheets/profile.css'>
+  <link rel='stylesheet' href='/stylesheets/event-details.css'>
+  <link rel='stylesheet' href='/stylesheets/new-home.css'>
+  <link rel='stylesheet' href='/stylesheets/event-page.css'>
+  <link rel="stylesheet" href='/stylesheets/profile-page.css'>
 </head>
 <body>
-  <% flash.each do |type, messages| %>
-    <div data-alert class="flash <%= type %> alert-box radius">
-      <a href="#" class="close">&times;</a>
-      <% messages.each do |message| %>
-        <%= message %><br />
-      <% end %>
-    </div>
-  <% end %>
-  <nav class="header">
-    <a href="/">HOME</a>
-    <% if logged_in? %>
-    <a href="/users/<%=current_user.id%>"><%=current_user.username%>'s profile</a>
-    <form action="/sessions" method="post">
-      <input type="hidden" name="_method" value="delete">
-      <button>LOGOUT</button>
-    </form>
-  <%else%>
-    <a href="/login">login</a>
-    <a href="/signup">signup</a>
-  <%end%>
-  </nav>
+
+<nav class="header">
+  <a href="/">HOME</a>
+  <a href="/events">EVENTS</a>
+  <% if logged_in? %>
+  <a href="/users/<%=current_user.id%>"><%=current_user.username%>'s profile</a>
+  <form action="/sessions" method="post">
+    <input type="hidden" name="_method" value="delete">
+    <button>LOGOUT</button>
+  </form>
+<%else%>
+  <a href="/login">login</a>
+  <a href="/signup">signup</a>
+<%end%>
+</nav>
+
+<% flash.each do |type, messages| %>
+  <div data-alert class="flash <%= type %> alert-box radius">
+    <a href="#" class="close">&times;</a>
+    <% messages.each do |message| %>
+      <%= message %><br />
+    <% end %>
+  </div>
+<% end %>
 <main class="container">
     <%= yield %>
 </main>

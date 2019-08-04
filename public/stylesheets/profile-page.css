@@ -1,0 +1,178 @@
+.my-classes-box {
+    width: 100%;
+}
+
+.user-info img {
+    display: block;
+    width: 200px;
+    height: 200px;
+    margin: auto;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.skills, .about, .my-classes, .enrolled-classes, .feedback {
+    background-color: white;
+    padding: 1rem;
+}
+
+.about-me h2, .my-classes h2, .enrolled-classes h2, .feedback h2{
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.my-class, .roll-call {
+    padding: 1rem;
+    line-height: 1.5rem;
+}
+
+.my-class {
+    margin: 1rem 0;
+    background-color: #f1ecec;
+    border-radius: 0.5rem;
+}
+.my-class a p {
+    padding: 0 1rem;
+}
+
+.my-class h3 {
+    margin-bottom: 0.5rem;
+}
+
+.roll-call {
+    display: grid;
+    grid-template-columns: 29% 29% 29%;
+    grid-gap: 3%;
+}
+.roll-call p {
+    display: inline;
+}
+
+.roll-call a img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: contain;    
+}
+
+.roll-call h3 {
+    grid-column: 1 / span 3;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}
+.img-name {
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+}
+
+.enrolled {
+    padding: 0 0 0.5rem 1rem;  
+    margin-bottom: 1rem;
+    background-color: #f1ecec;
+    border-radius: 0.5rem;
+}
+
+.enrolled h3 {
+    margin-bottom: 0.5rem;
+}
+.enrolled p {
+    padding: 0 1rem;  
+}
+
+.about-me p {
+    font-size: 1.1rem;
+    line-height: 1.5rem;
+}
+
+.feedback {
+    line-height: 1.5rem;
+    padding: 1rem;
+}
+
+.comment-box {
+    border: 0.5px solid rgb(200, 200, 200);
+    padding: 0.5rem;
+    margin-bottom: 0.5rem;
+    border-radius: 4px;
+}
+
+.comment-box p:nth-child(2) {
+    text-align: right;
+    font-size: 0.75rem;
+    font-style: italic; 
+}
+
+
+.signup-form > input {
+    border: 0.5px solid rgb(200, 200, 200);
+    border-radius: 0.25rem;
+    padding: 0.5rem;
+    text-align: left;
+}
+
+.login-form > button {
+    padding: .75rem;
+    border: 1px solid #ff3365;
+    border-radius: 0.25rem;
+    font-size: 1rem;
+    background-color: #ffffff;
+    color: #ff3365;
+    width: 25%;
+    margin: 1rem auto;
+}
+
+.user-edit {
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: auto;
+}
+.user-edit > h1 {
+    text-align: center;
+}
+
+
+.user-edit > input {
+    border: 0.5px solid rgb(200, 200, 200);
+    border-radius: 2px;
+    padding: 0.5rem;
+    text-align: left;
+}
+
+.user-edit > button {
+    padding: .75rem;
+    border: 1px solid #ff3365;
+    border-radius: 0.25rem;
+    font-size: 1rem;
+    background-color: #ffffff;
+    color: #ff3365;
+    width: 25%;
+    margin: 1rem auto;
+}
+
+.user-edit > textarea {
+    width: 100%;
+    height: 3rem;
+    margin: 0.25rem 0 0 0;
+    border-radius: 0.25rem;
+    border: 0.5px solid rgb(200, 200, 200);
+    
+}
+
+
+@media (min-width: 800px) {
+    .my-classes-box {
+        display: grid;
+        grid-template-columns: 49% 48%;
+        grid-auto-rows: auto;
+        grid-gap: 2%;
+        margin: 1rem 0;
+    }
+    /* .enrolled-classes {
+        grid-column: 1 / span 1;
+    } */
+}

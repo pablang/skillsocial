@@ -1,0 +1,45 @@
+.events-box, a {
+    color: #303030;
+}
+
+.events-header {
+    background-color: #303030;
+    color: #ffffff;
+    text-align: center;
+    height: 7vh;
+}
+
+.container form {
+    text-align: right;
+    margin: 1rem auto;
+}
+
+.each-event {
+    width: 100%;
+    background: #ffffff;
+    padding: 1rem;
+    margin: 1rem auto;
+}
+.each-event h3{
+    font-size: 1.5rem;
+    text-emphasis: 700;
+}
+
+a img{
+    width: 100%;
+}
+
+@media (min-width: 1000px) {
+    .events-box {
+        display: grid;
+        grid-template-columns: 50% 50%;
+        grid-template-rows: 30vw 30vw;
+        grid-gap: 10rem 2rem;
+      }
+
+    .each-event {
+        grid-column: 1 / span 1;
+        align-items: center;
+        justify-content: center;
+    }
+}

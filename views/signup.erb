@@ -1,7 +1,7 @@
 
 
 <form class="signup-form" action="/signup" method="post">
-    <h1>sign up page</h1>
+    <h1>Sign up</h1>
     <label for="">email</label>
     <input type="text" name="email" value="<%=@user.email if @user%>">
     <label for="">name</label>
@@ -11,9 +11,9 @@
     <label for="">password</label>
     <input type="password" name="password" value="<%=@user.password if @user%>">
     <label for="">image url</label>
-    <input type="text" name="image_url" value="<%=@user.image_url if @user%>">>
+    <input type="text" name="image_url" value="<%=@user.image_url if @user%>">
     <label for="">phone</label>
-    <input type="text" name="phone" value="<%=@user.phone if @user%>">>
+    <input type="text" name="phone" value="<%=@user.phone if @user%>">
     <label for="">about me</label>
     <textarea name="about_me"><%=@user.about_me if @user%></textarea>
     <label for="">skills</label>

@@ -1,0 +1,41 @@
+.event-details-header h1 {
+    margin: 1rem auto;
+    text-align: center;
+}
+
+.event-details {
+    background-color: #ffffff;
+    padding: 1rem;
+}
+.event-details h2{
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+.event-details img{
+    width: 100%;
+    margin-bottom: 1rem;
+}
+.event-details p{
+    line-height: 2rem;
+    padding: 0 1rem;
+}
+.event-details a{
+    color: #ff3365;
+}
+form.rsvp {
+    display: flex;
+    align-items: center;
+    margin: 1rem;
+}
+.rsvp label {
+    padding: 1rem;
+}
+
+@media (min-width: 800px) {
+    .event-details img {
+        max-width: 80%;
+        margin: 1rem auto;
+        justify-content: center;
+        display: flex;
+    }
+}

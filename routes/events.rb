@@ -24,6 +24,7 @@ post '/events/new' do
     event.name = params[:name]
     event.date_time = "#{params[:date]} #{params[:time]}"
     event.location = params[:location]
+    event.image_url = params[:image_url]
     event.description = params[:description]
     event.user_id = current_user.id
     event.save
@@ -35,6 +36,7 @@ put "/events/:id" do
     event = Event.find(params[:id])
     event.name = params[:name]
     event.date_time = "#{params[:date]} #{params[:time]}"
+    event.image_url = params[:image_url]
     event.location = params[:location]
     event.description = params[:description]
     event.user_id = current_user.id

@@ -42,3 +42,5 @@ CREATE TABLE comments (
     user_id INTEGER,
     received_user_id INTEGER
 );
+
+ALTER TABLE events ADD COLUMN image_url VARCHAR(1000);
