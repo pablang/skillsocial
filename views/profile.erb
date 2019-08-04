@@ -14,28 +14,7 @@
     <p><%=@user.about_me%> put about me details here</p>
 </section>
 
-<section class="feedback">
-    <h4>Feedback</h4>
-    <%@comments.each do |comment|%>
-    <div class="comment-box">
-        <p><%=comment.body%></p>
-        <p><%=comment.user.name%></p>
-    </div>    
-    <% end %>
-    <% if logged_in? %>
-        <form action="/feedback/new" method="post">
-            <input type="hidden" name="id" value="<%=current_user.id%>">
-            <input type="hidden" name="receiver" value="<%=@user.id%>">
-            <textarea name="feedback"></textarea>
-            <button>give feedback</button>
-        </form>
-        <%# add a delete comment button %>
-    <%else %>
-        <form action="/login">
-            <button>LOG IN TO GIVE FEEDBACK</button>
-        </form>
-    <%end%>
-</section>
+
 </div>
 <section class="my-classes">
     <h2>My classes</h2>
@@ -66,4 +45,23 @@
     <p><%=event.description%></p>
     <%end%>
 <%end %>
+</section>
+<section class="feedback">
+    <h2>Feedback</h2>
+    <div class="feedback-box">
+    <%@comments.each do |comment|%>
+    <div class="comment-box">
+        <p><%=comment.body%></p>
+        <p><%=comment.user.name%></p>
+    </div>    
+    <% end %>
+    <% if logged_in? && @has_atteneded%>
+        <form action="/feedback/new" method="post">
+            <input type="hidden" name="id" value="<%=current_user.id%>">
+            <input type="hidden" name="receiver" value="<%=@user.id%>">
+            <textarea name="feedback"></textarea>
+            <button>give feedback</button>
+        </form>
+    <%end%>
+    </div>
 </section>

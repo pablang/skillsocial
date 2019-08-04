@@ -27,9 +27,10 @@ post '/users/new' do
 end
 
 get '/users/:id' do
-  @user = User.find(params[:id])
-  @events = Event.where(user_id: @user.id)
-  @comments = Comment.where(received_user_id: @user.id)
+  @user = User.find(params[:id]) #profile of person
+  @events = Event.where(user_id: @user.id) #events created by person
+  @comments = Comment.where(received_user_id: @user.id) # comments person has recevied
+  @has_attended = current_user.events.any? {|event| event[:user_id] == @user.id}
   erb :profile
 end
   
