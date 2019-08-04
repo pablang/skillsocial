@@ -12,6 +12,14 @@
   <link rel='stylesheet' href='/stylesheets/profile.css'>
 </head>
 <body>
+  <% flash.each do |type, messages| %>
+    <div data-alert class="flash <%= type %> alert-box radius">
+      <a href="#" class="close">&times;</a>
+      <% messages.each do |message| %>
+        <%= message %><br />
+      <% end %>
+    </div>
+  <% end %>
   <nav class="header">
     <a href="/">HOME</a>
     <% if logged_in? %>

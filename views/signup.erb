@@ -1,24 +1,24 @@
 
 
-<form class="signup-form" action="/users/new" method="post">
+<form class="signup-form" action="/signup" method="post">
     <h1>sign up page</h1>
     <label for="">email</label>
-    <input type="text" name="email">
+    <input type="text" name="email" value="<%=@user.email if @user%>">
     <label for="">name</label>
-    <input type="text" name="name">
+    <input type="text" name="name" value="<%=@user.name if @user%>">
     <label for="">username</label>
-    <input type="text" name="username">
+    <input type="text" name="username" value="<%=@user.username if @user%>">
     <label for="">password</label>
-    <input type="password" name="password">
+    <input type="password" name="password" value="<%=@user.password if @user%>">
     <label for="">image url</label>
-    <input type="text" name="image_url">
+    <input type="text" name="image_url" value="<%=@user.image_url if @user%>">>
     <label for="">phone</label>
-    <input type="text" name="phone">
+    <input type="text" name="phone" value="<%=@user.phone if @user%>">>
     <label for="">about me</label>
-    <textarea name="about_me"></textarea>
+    <textarea name="about_me"><%=@user.about_me if @user%></textarea>
     <label for="">skills</label>
-    <textarea name="skills"></textarea>
+    <textarea name="skills"><%=@user.skills if @user%></textarea>
     <label for="">interests</label>
-    <textarea name="interests"></textarea>
+    <textarea name="interests"><%=@user.interests if @user%></textarea>
     <button>SAVE</button>
 </form>
