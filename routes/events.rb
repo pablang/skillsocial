@@ -1,5 +1,5 @@
 get '/events' do
-    @events = Event.all.order(:date_time)
+    @events = Event.all.order(date_time: :asc)
     erb :events
 end
 

@@ -9,7 +9,7 @@
     <a href="/events/<%=event.id%>">
     <aside class="each-event">
         <h3><%=event.name%></h3>
-        <img src="<%=event.image_url%>" alt="">
+        <img src="<%=event.image_url%>" alt="" id="event-page-img">
         <p>Date: <%=show_date(event.date_time)%></p>
         <p>Time: <%=show_time(event.date_time)%></p>
         <p>Description: <%=event.description%></p>
