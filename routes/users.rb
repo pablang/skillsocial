@@ -37,7 +37,7 @@ get '/users/:id' do
   @events = Event.where(user_id: @user.id) #events created by person
   @comments = Comment.where(received_user_id: @user.id) # comments person has recevied
   # binding.pry
-  @has_attended = current_user.events.any? {|event| event[:user_id] == @user.id} unless current_user == nil
+  @has_attended = current_user.subscribed_events.any? {|event| event[:user_id] == @user.id} unless current_user == nil
   erb :profile
 end
   
@@ -48,14 +48,28 @@ end
 
 put "/users/:id" do
   redirect '/login' unless session[:user_id]
-  user = User.find(session[:user_id])
-  user.email = params[:email]
-  user.name = params[:name]
-  user.username = params[:username]
-  user.image_url = params[:image_url]
-  user.phone = params[:phone]
-  user.skills = params[:skills]
-  user.interests = params[:interests]
-  user.save
-  redirect "/users/#{current_user.id}"
+  @user = User.find(session[:user_id])
+  @user.email = params[:email]
+  @user.name = params[:name]
+  @user.username = params[:username]
+  @user.image_url = params[:image_url]
+  @user.phone = params[:phone]
+  @user.skills = params[:skills]
+  @user.interests = params[:interests]
+  if @user.valid?
+    begin
+      @user.save
+      session[:user_id] = @user.id
+      redirect "/users/#{current_user.id}"
+    rescue  
+      flash.now[:error] = "User not saved. Please try again later"
+      halt 400, erb(:edit_profile)  
+    end
+  else
+    flash.now[:error] = []
+    @user.errors.messages.each do |error|
+      flash.now[:error] << error.first.to_s + " " + error.second.join(' and ')
+    end
+    halt 400, erb(:edit_profile)
+  end
 end

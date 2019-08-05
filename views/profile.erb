@@ -34,23 +34,21 @@
     <div class="roll-call">
         <%if logged_in? %>
         <h3>ROLL CALL</h3>
-        <%@events.each do |event|%>
-            <%event.subscribed_users.each do |user|%>
+            <%event.subscribed_users.each do |sub_user|%>
             <div class="img-name">
-            <p><%=user.username%></p>
-            <a href="/users/<%=user.id%>"><img src="<%=user.image_url%>" alt="no profile image"></a>
+            <p><%=sub_user.username%></p>
+            <a href="/users/<%=sub_user.id%>"><img src="<%=sub_user.image_url%>" alt="no profile image"></a>
             </div>
             <% end %>
-        <% end %>
     </div> 
     <% end %>
     </div>
        
     <%end%>
 </section>
-<%if logged_in? %>
 <section class="enrolled-classes">
     <h2>Enrolled classes</h2>
+    <%if logged_in? %>
     <%@user.subscribed_events.each do |event|%>
     <div class="enrolled">
     <a href="/events/<%=event.id%>"><h3><%=event.name%></h3></a>
@@ -59,12 +57,15 @@
     <p><%=event.location%></p>
     </div>
     <%end%>
+    <% else %>
+    <p>Log in to see enrolled classes</p>
 </section>
 <%end %>
 </div>
 </div>
+
 <section class="feedback">
-    <h2>Feedback</h2>
+    <h2 id='feedback'>Feedback</h2>
     <div class="feedback-box">
     <%@comments.each do |comment|%>
     <div class="comment-box">
@@ -72,8 +73,8 @@
         <p><%=comment.user.name%></p>
     </div>    
     <% end %>
-    <% if logged_in? && @has_atteneded%>
-        <form action="/feedback/new" method="post">
+    <% if logged_in? && @has_attended %>
+        <form action="/feedback/new" method="post" id="feedback-form">
             <input type="hidden" name="id" value="<%=current_user.id%>">
             <input type="hidden" name="receiver" value="<%=@user.id%>">
             <textarea name="feedback"></textarea>
@@ -82,3 +83,4 @@
     <%end%>
     </div>
 </section>
+<%# && @has_atteneded %>

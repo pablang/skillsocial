@@ -35,6 +35,20 @@ textarea{
     margin: 0 auto;
 }
 
+.flash.error.alert-box.radius {
+    background-color: #f4afc6;
+    color: white;
+    font-size: 1.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0.25rem;
+}
+.close {
+    margin: 0.5rem;
+    width: 1rem;
+    color: white;
+}
 
 .user-info {
     width: 100%;
@@ -95,7 +109,7 @@ nav.header {
     font-size: 1rem;
     background-color: #ffffff;
     color: #ff3365;
-    width: 25%;
+    width: 35%;
     margin: 1rem auto;
 }
 
@@ -151,5 +165,8 @@ form button {
 @media (min-width: 800px) {
     .login-form, .signup-form > input {
         max-width: 70rem;
+    }
+    .flash.error.alert-box.radius {
+        font-size: 2rem;
     }
 }

@@ -17,10 +17,15 @@
     <p>There are <%= @event.subscribed_users.count%> interested in attending this event</p>
 
     <%if logged_in?%>
+    <form action="/users/<%=@event.user_id%>#feedback">
+        <input type="hidden">
+        <label for="">If you have attended feel free to give feedback</label>
+        <button>GIVE FEEDBACK</button>
+    </form>
     <form action="/subscribed_users/new" method="post">
         <input type="hidden" name="event_id" value="<%= @event.id%>">
         <input type="hidden" name="user_id" value="<%=current_user.id%>">
-        <label for="rsvp_button">If you would like to come please click below</label>
+        <label for="rsvp_button">If you would like to come please click </label>
         <button>RSVP</button>
     </form>
     <%else%>
@@ -29,6 +34,4 @@
             <button>Login</button>
         </form>
     <%end%>
-
-
  </section>

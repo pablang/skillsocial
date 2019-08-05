@@ -12,9 +12,9 @@
     <label for="">phone</label>
     <input type="text" name="phone" value="<%=@user.phone%>">
     <label for="">skills</label>
-    <textarea name="skills"></textarea >
+    <textarea name="skills"><%=@user.skills%></textarea >
     <label for="">interests</label>
-    <textarea name="interests" ></textarea>
+    <textarea name="interests" ><%=@user.interests%></textarea>
     <button>SAVE</button>
 </form>
 <form action="/users/<%=@user.id%>">
