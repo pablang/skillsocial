@@ -2,7 +2,7 @@
 require 'sinatra'
 require 'sinatra/reloader' if development?
 require 'sinatra/flash'
-require 'pry'
+# require 'pry'
 require_relative 'database_config'
 require_relative 'models/user'
 require_relative 'models/event'

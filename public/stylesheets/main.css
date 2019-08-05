@@ -145,7 +145,7 @@ nav.header {
 
 .signup-form > textarea, .event-form > textarea, .edit-event-form > textarea {
     width: 100%;
-    height: 3rem;
+    height: 5rem;
     margin: 0.25rem 0 0 0;
     border-radius: 0.25rem;
     border: 0.5px solid rgb(200, 200, 200);
@@ -163,10 +163,15 @@ form button {
 }
 
 @media (min-width: 800px) {
-    .login-form, .signup-form > input {
-        max-width: 70rem;
+    .login-form, .signup-form, .event-form, .edit-event-form {
+        max-width: 30rem;
     }
     .flash.error.alert-box.radius {
         font-size: 2rem;
+    }
+
+    .signup-form > textarea, .event-form > textarea, .edit-event-form > textarea {
+        height: 7rem;
+        
     }
 }

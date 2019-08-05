@@ -22,10 +22,20 @@
 .event-details a{
     color: #ff3365;
 }
+.event-details form {
+    display: flex;
+    justify-content: flex-end;
+    align-items: baseline;
+}
+.event-details form > label {
+    margin: 0 1rem;
+}
+
 form.rsvp {
     display: flex;
     align-items: center;
     margin: 1rem;
+    
 }
 .rsvp label {
     padding: 1rem;
@@ -38,4 +48,12 @@ form.rsvp {
         justify-content: center;
         display: flex;
     }
+    .event-details h2, .event-details p {
+        margin-left: 3rem;
+        margin-top: 1rem;
+    }
+    .event-details form {
+        margin-right: 3rem;
+    }
+  
 }

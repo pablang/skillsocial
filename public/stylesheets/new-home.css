@@ -25,12 +25,21 @@
 }
 
 .users-block .home-details {
-    display: flex;
     justify-content: space-around;
     margin: 1rem;
     border-radius: 1rem;
     padding: 0.5rem 1rem;
     background-color: #f1ecec;
+}
+
+.home-details a {
+    display: flex;
+}
+.home-details p {
+    margin: 0 1rem;
+}
+.home-details img {
+    margin: 0 1.5rem;
 }
 
 .events-block, .users-block h3{

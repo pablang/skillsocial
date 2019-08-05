@@ -1,3 +1,4 @@
+
 <header class=event-details-header>
     <h1>Event details</h1><%if logged_in? && current_user.id == @event.user_id%>
     <form action="/events/<%=@event.id%>/edit">

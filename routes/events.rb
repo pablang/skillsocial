@@ -1,5 +1,5 @@
 get '/events' do
-    @events = Event.all
+    @events = Event.all.order(:date_time)
     erb :events
 end
 
@@ -57,7 +57,7 @@ put "/events/:id" do
     if @event.valid?
         begin
           @event.save
-          redirect "/events/#{@event.id}"
+              redirect "/events/#{@event.id}"
         rescue  
           flash.now[:error] = "User not saved. Please try again later"
           halt 400, erb(:edit_event)  
