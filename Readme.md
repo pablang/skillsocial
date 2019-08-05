@@ -1,7 +1,7 @@
 # Skillsocial 
 Skillsocial is an app that connects people with knowledge who want to share it with people who want to learn something new.  It is also helping to connect real face to face interactions which is lost with youtube university, Udemy and other online courses. A face to face interaction also gives those learning real-time feedback and helps them progress faster.
 
-Here is the link: https://radiant-wave-98960.herokuapp.com/
+Here is the link: https://skillsocial-app.herokuapp.com
 
 ## App features:
 
