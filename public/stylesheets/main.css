@@ -19,6 +19,7 @@ nav.header {
 nav a {
     color: #ffffff;
     text-decoration: none;
+    font-size: 1rem;
 }
 a {
     text-decoration: none;
@@ -173,5 +174,9 @@ form button {
     .signup-form > textarea, .event-form > textarea, .edit-event-form > textarea {
         height: 7rem;
         
+    }
+
+    nav a {
+        font-size: 1.5rem;
     }
 }
