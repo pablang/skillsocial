@@ -1,8 +1,7 @@
-     
 require 'sinatra'
 require 'sinatra/reloader' if development?
 require 'sinatra/flash'
-# require 'pry'
+require 'pry'
 require_relative 'database_config'
 require_relative 'models/user'
 require_relative 'models/event'
@@ -14,9 +13,9 @@ enable :sessions
 helpers do
   def logged_in?
     if current_user
-      return true
-    else 
-      return false
+      true
+    else
+      false
     end
   end
 
@@ -25,15 +24,15 @@ helpers do
   end
 
   def show_date(date)
-    date.strftime("%d/%m/%y")
+    date.strftime('%d/%m/%y')
   end
-  
+
   def show_time(time)
-    time.strftime("%H:%M")
+    time.strftime('%H:%M')
   end
 end
 
-after do 
+after do
   ActiveRecord::Base.connection.close
 end
 
@@ -53,6 +52,3 @@ require_relative 'routes/users'
 require_relative 'routes/events'
 require_relative 'routes/feedback'
 require_relative 'routes/subscribed_users'
-
-
-
