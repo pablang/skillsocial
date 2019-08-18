@@ -5,6 +5,7 @@ end
 
 get '/events/:id' do
   @event = Event.find(params[:id])
+  # binding.pry
   erb :event_details
 end
 
@@ -30,6 +31,9 @@ post '/events/new' do
   if @event.valid?
     begin
       @event.save
+      subs = EventSubscription.new
+      subs.subscribed_user_id = current_user.id
+      subs.subscribed_event_id = @event.id
       redirect "/events/#{@event.id}"
     rescue
       flash.now[:error] = 'User not saved. Please try again later'

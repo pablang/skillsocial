@@ -7,6 +7,8 @@ require_relative 'models/user'
 require_relative 'models/event'
 require_relative 'models/event_subscription'
 require_relative 'models/comment'
+require_relative 'models/user_comment'
+
 
 enable :sessions
 
@@ -29,6 +31,12 @@ helpers do
 
   def show_time(time)
     time.strftime('%H:%M')
+  end
+
+  def has_attended?(teacher)
+    attended_events = EventSubscription.where(subscribed_user_id: current_user)
+    # binding.pry
+    attended_events.any? { |event| event.subscribed_event.user_id == teacher.id }
   end
 end
 

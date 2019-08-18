@@ -32,10 +32,20 @@ post '/signup' do
 end
 
 get '/users/:id' do
-  @user = User.find(params[:id]) # profile of person
-  @events = Event.where(user_id: @user.id) # events created by person
-  @comments = Comment.where(received_user_id: @user.id) # comments person has recevied
-  @has_attended = current_user.subscribed_events.any? { |event| event[:user_id] == @user.id } unless current_user.nil?
+  # profile of person
+  @user = User.find(params[:id])
+  # events created by person
+  @events = Event.where(user_id: @user.id)
+
+  # only show comments from UserComment where teacher.id is @user
+  @comments = UserComment.where(teacher_id: @user.id)
+  # .order(created_at: :desc)
+
+  # a person has attended an event when the event includes the current user
+  has_attended?(@user)
+
+  @event_name = params[:event]
+  # binding.pry
   erb :profile
 end
 

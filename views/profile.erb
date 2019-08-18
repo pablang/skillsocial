@@ -39,26 +39,26 @@
             </div>
             <% end %>
         <% end %>
-    </div> 
     </div>
-       
+    </div>
+
     <%end%>
 </section>
 <section class="enrolled-classes">
     <h2>Enrolled classes</h2>
-    <%if logged_in? %>
-    <%@user.subscribed_events.each do |event|%>
-    <div class="enrolled">
-    <a href="/events/<%=event.id%>"><h3><%=event.name%></h3></a>
-    <p><%=show_date(event.date_time)%></p>
-    <p><%=show_time(event.date_time)%></p>
-    <p><%=event.location%></p>
-    </div>
-    <%end%>
+        <%if logged_in? && current_user == @user %>
+            <%@user.subscribed_events.each do |event|%>
+            <div class="enrolled">
+            <a href="/events/<%=event.id%>"><h3><%=event.name%></h3></a>
+            <p><%=show_date(event.date_time)%></p>
+            <p><%=show_time(event.date_time)%></p>
+            <p><%=event.location%></p>
+            </div>
+        <%end%>
     <% else %>
-    <p>Log in to see enrolled classes</p>
+        <p>Log in to see enrolled classes</p>
 </section>
-<%end %>
+    <%end %>
 </div>
 </div>
 
@@ -67,11 +67,11 @@
     <div class="feedback-box">
     <%@comments.each do |comment|%>
     <div class="comment-box">
-        <p><%=comment.body%></p>
-        <p><%=comment.user.name%></p>
-    </div>    
+        <p><%=comment.student_comment.event_name%>  <%= comment.student_comment.body%></p>
+        <p><%=comment.student_comment.user.name%> -  <%=comment.student_comment.created_at.strftime('%d/%m/%y %H:%M')%></p>
+    </div>
     <% end %>
-    <% if logged_in? && @has_attended %>
+    <% if logged_in? && has_attended?(@user) %>
         <form action="/feedback/new" method="post" id="feedback-form">
             <input type="hidden" name="id" value="<%=current_user.id%>">
             <input type="hidden" name="receiver" value="<%=@user.id%>">
@@ -81,4 +81,3 @@
     <%end%>
     </div>
 </section>
-<%# && @has_atteneded %>

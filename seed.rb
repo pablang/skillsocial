@@ -69,30 +69,8 @@ event3.save
 c = Comment.new
 c.user_id = 1
 c.body = 'Doggo ipsum very taste wow big ol pupper most angery pupper I have ever seen, heckin. Puggo very taste wow you are doing me the shock noodle horse, wrinkler.'
+c.rating = 5
+c.event_name = "Welding Workshop"
 c.received_user_id = 2
 c.save
 
-# user3.events << event2
-# user3.events << event3
-
-# event1.users << user3
-
-# attendee1 = Attendee.new
-# attendee1.user_id = 2
-# attendee1.event_id = 1
-# attendee1.save
-
-# attendee2 = Attendee.new
-# attendee2.user_id = 3
-# attendee2.event_id = 3
-# attendee2.save
-
-# attendee3 = Attendee.new
-# attendee3.user_id = 2
-# attendee3.event_id = 2
-# attendee3.save
-
-# attendee4 = Attendee.new
-# attendee4.user_id = 1
-# attendee4.event_id = 2
-# attendee4.save

@@ -72,7 +72,7 @@
     height: 50px;
     object-fit: cover;
     border-radius: 50%;
-   
+
 }
 
 @media (min-width: 800px) {
@@ -80,6 +80,11 @@
         display: grid;
         grid-template-columns: 50% 50%;
         grid-gap: 10rem 2rem;
+    }
+
+    .users-block img {
+        width: 80px;
+        height: 80px;
     }
 
 }

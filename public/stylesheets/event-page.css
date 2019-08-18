@@ -31,11 +31,36 @@
     margin: 0 1rem;
 }
 
+.organiser {
+    font-size: 1.5rem;
+}
+
+.class-roll {
+    margin: 2rem;
+    background-color: aliceblue;
+}
+
+.class-roll h3 {
+    display: block;
+    text-align: center;
+}
+
+.user-details-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+}
+.user-details > img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
 form.rsvp {
     display: flex;
     align-items: center;
     margin: 1rem;
-    
+
 }
 .rsvp label {
     padding: 1rem;
@@ -55,5 +80,5 @@ form.rsvp {
     .event-details form {
         margin-right: 3rem;
     }
-  
+
 }
