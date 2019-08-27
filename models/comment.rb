@@ -1,5 +1,5 @@
 class Comment < ActiveRecord::Base
-  belongs_to :user # the creating User
-  has_many :user_comments, :foreign_key => :student_comment_id
-  has_many :teachers, :through => :user_comments
+  belongs_to :student, :foreign_key => :student_id, :class_name => 'User'
+  belongs_to :teacher, :foreign_key => :teacher_id, :class_name => 'User'
+
 end

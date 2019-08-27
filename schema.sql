@@ -15,8 +15,8 @@ CREATE TABLE users (
     email VARCHAR(200) UNIQUE NOT NULL,
     phone VARCHAR(50),
     about_me VARCHAR(2000),
-    skills_tag_id INTEGER,
-    interests_tag_id INTEGER,
+    skills VARCHAR(1000),
+    interests VARCHAR(1000)
 );
 
 CREATE TABLE events (
@@ -38,27 +38,13 @@ CREATE TABLE event_subscriptions (
     FOREIGN KEY (subscribed_event_id) REFERENCES events (id)
 );
 
-
 CREATE TABLE comments (
     id SERIAL PRIMARY KEY,
     body VARCHAR(2000),
     rating INTEGER,
-    user_id INTEGER,
+    student_id INTEGER,
     teacher_id INTEGER,
-    event_name VARCHAR(500),
     created_at timestamptz,
-    updated_at timestamptz
-);
-
--- CREATE TABLE likes (
---     id SERIAL PRIMARY KEY,
---     user_id INTEGER
--- );
-
-CREATE TABLE user_comments (
-    id SERIAL PRIMARY KEY,
-    teacher_id INTEGER,
-    student_comment_id INTEGER,
     FOREIGN KEY (teacher_id) REFERENCES users (id),
-    FOREIGN KEY (student_comment_id) REFERENCES comments (id)
+    FOREIGN KEY (student_id) REFERENCES users (id)
 );
