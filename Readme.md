@@ -3,6 +3,8 @@ Skillsocial is an app that connects people with knowledge who want to share it w
 
 Here is the link: https://skillsocial-app.herokuapp.com
 
+![Screenshot of home](images/screenshot.png)
+
 ## App features:
 
 * search events and workshops
